@@ -12,11 +12,16 @@ import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var my_scroll: UIScrollView!
     @IBOutlet weak var my_enlarging_stuff: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
+        my_scroll.delegate = self
+        my_scroll.minimumZoomScale = 0.2
+        my_scroll.minimumZoomScale = 2
+        my_scroll.setZoomScale(0.5, animated: true)
         my_enlarging_stuff.image = UIImage(named: "cucumber")
         
     }
@@ -26,6 +31,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return my_enlarging_stuff
+    }
 }
+
+
 
