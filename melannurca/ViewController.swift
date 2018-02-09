@@ -10,12 +10,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var my_enlarging_stuff: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // aaaaf
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        my_enlarging_stuff.image = UIImage(named: "cucumber")
+        
     }
 
     override func didReceiveMemoryWarning() {
